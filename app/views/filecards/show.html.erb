@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @filecard.question %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @filecard.answer %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @filecard.public %>
+</p>
+
+<p>
+  <strong>Submitdate:</strong>
+  <%= @filecard.submitDate %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @filecard.subject.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @filecard.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_filecard_path(@filecard) %> |
+<%= link_to 'Back', :back %>

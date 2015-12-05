@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>P4</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <% if current_user %> 
+      Logged in as <%= current_user.name %> 
+      <%= link_to "log out", logout_path %>
+    <% else %>
+      <%= link_to "log in", login_path %>
+      | <%= link_to "register", new_user_path %>
+    <% end %>
+    <h3>Quicklinks:</h3>
+    <%= link_to 'Filecards', filecards_path %> | 
+    <%= link_to 'Users', users_path %> | 
+    <%= link_to 'Subjects', subjects_path %>
+  </header>
+
+<%= yield %>
+
+</body>
+</html>

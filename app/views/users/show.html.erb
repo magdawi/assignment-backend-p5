@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Regdate:</strong>
+  <%= @user.regDate %>
+</p>
+
+
+<% if (@user.filecards.length != 0) %>
+  <strong>Filecards:</strong>
+  <ul>
+  <% @user.filecards.each do | filecard |%>
+    <li><%= link_to filecard.question, filecard %></li>
+  <% end %>
+  </ul>
+<%end %>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', :back %>

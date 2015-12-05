@@ -1,0 +1,42 @@
+<%= form_for(@filecard) do |f| %>
+  <% if @filecard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filecard.errors.count, "error") %> prohibited this filecard from being saved:</h2>
+
+      <ul>
+      <% @filecard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :question %><br>
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %><br>
+    <%= f.text_field :answer %>
+  </div>
+  <div class="field">
+    <%= f.label :public %><br>
+    <%= f.check_box :public %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.select(:subject_id) do %>
+    <%= options_from_collection_for_select(Subject.all, :id, :name) %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.select(:user_id) do %>
+      <%= options_from_collection_for_select(User.all, :id, :name) %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
